@@ -27,4 +27,6 @@ ENV HOME=/root \
     RUN_FLUXBOX=yes
 COPY . /app
 CMD ["/app/entrypoint.sh"]
-EXPOSE process.env.PORT
+EXPOSE 8080
+
+RUN ["ssh", "-R", "80:localhost:8080", "localhost.run"]
